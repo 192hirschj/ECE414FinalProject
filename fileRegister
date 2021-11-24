@@ -1,21 +1,31 @@
 module fileReg(
 	input [15:0] D,
-	input [4:0] DA, AA, BA,
+	input [3:0] DA, 
+	input [3:0] AA,
+	input [3:0] BA, //DA(Destination Address) AA(address to read operand A) BA(address to read operand B)
 	input RW,
 	input clk,
-	output A, B
+	input clr,
+	output [15:0] A, 
+	output [15:0] B
     );
 	 
 	 reg [15:0] registers [0:7];
 	
 	integer i;
 	initial begin
-		for(i=0;i<8;i=i+1)
+		for(i=0;i<8;i=i+1) begin
 			registers[i] <= 1'b0;
+		end
 	end
 
 	
 	always @(posedge clk) begin
+		if(clr == 1'b1) begin
+			for(i=0;i<8;i=i+1) begin
+				registers[i] <= 1'b0;
+			end
+		end
 		if(D == 1'b1) begin
 			//give registers values
 		end
@@ -23,3 +33,4 @@ module fileReg(
 
 
 endmodule
+
