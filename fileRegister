@@ -1,0 +1,25 @@
+module fileReg(
+	input [15:0] D,
+	input [4:0] DA, AA, BA,
+	input RW,
+	input clk,
+	output A, B
+    );
+	 
+	 reg [15:0] registers [0:7];
+	
+	integer i;
+	initial begin
+		for(i=0;i<8;i=i+1)
+			registers[i] <= 1'b0;
+	end
+
+	
+	always @(posedge clk) begin
+		if(D == 1'b1) begin
+			//give registers values
+		end
+	end
+
+
+endmodule
