@@ -1,0 +1,80 @@
+memory_initialization_radix=16; 
+memory_initialization_vector =
+
+8000,     LI: R0 = R0 + R0
+
+8101,     LI: R1 = R0 + R1
+
+8201,     LI: R2 = R0 + R1
+
+8307,     LI: R3 = R0 + R7
+
+8405,     LI: R4 = R0 + R5
+
+D501,     JAL: R5 = PC + 1
+
+E01A,     JMP: OFFSET = R1 + R10
+
+3630,     OR: R6 = R3 | R0
+
+3740,     OR: R7 = R4 | R0
+
+3800,     OR: R8 = R0 |R0
+
+3901,     OR: R9 = R0 | R1
+
+8A02,     LI: R10 = R0 + R2
+
+8B40,     LI: R11 = R4 + R0
+
+0CBB,     ADD: R12 = R11 + R11
+
+DF00,     JAL: R15 = PC + 1
+
+6BB0,     SLA: R11 = R11 << 1
+
+7CC0,     SRA: R12 = R12 >> 1
+
+CC01,     BNZ: IF RS != 0, PC = PC + 1 + OFFSET
+
+E001,     JMP: OFFSET = R0 + R1
+
+F0F0,     JR: PC = R15, 
+
+DF00,     JAL: R15 = PC + 1
+
+2C79,     AND: R12 = R7 | R9
+
+BC01,     BIZ: PC = PC + (R0 + R1) + 1 IF R0 = 0
+
+0886,     ADD: R8 = R8 + R6
+
+2C89,     AND: R12 = R8 | R9
+
+7880,     SRA: R8 = R8 >> 1
+
+7770,     SRA: R7 = R7 >> 1
+
+6AA0,     SLA: R10 = R10 << 1
+
+BC01,     BIZ: PC += (R0 + R1) + 1 IF R0 =0
+
+377B,     OR: R7 = R7 | R11
+
+BA01,     BIZ: PC += (R0 + R1) + 1 OF R0 = 0
+
+F0F0,     JR: PC = R15
+
+F050,     JR: PC = R5
+
+8F0F,     LI: R15 = R0 + R15
+
+A0F7,     SW: Mem[R15[5:0]] = R7
+
+9DF0,     LW: R13 = Mem[R15[5:0]]
+
+1ED1,     SUB: R14 = R13 - R1
+
+A00E,     SW: Mem[R0[5:0]] = R14
+
+FF00,     EOE
