@@ -36,7 +36,7 @@ module tb_programCounter;
 	wire [5:0] PC;
 
 	// Instantiate the Unit Under Test (UUT)
-	programCounter uut (
+	program_counter uut (
 		.A(A), 
 		.SA(SA), 
 		.SB(SB), 
